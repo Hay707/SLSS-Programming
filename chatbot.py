@@ -13,7 +13,18 @@ user_name = input("What's your name?")
 print(f"It's nice to meet you, {user_name}!")
 
 # Ask the user what their favourite food is
+fave_food = input("What's your favourite food?")
 
-
-# Respond with something appropriate
-
+# Respond with something that is NOT TOO repetitive
+# Create a list of appropriate responses
+list_of_fave_food_responses = [
+    "Mmmmmm. Tha sounds delicious.",
+    f"Wa!{fave_food} sounds good.",
+    "RAH!!!",
+    "Cool!"
+]
+# Choose one response randomly frmo the list
+import random
+random_response = random.choice(list_of_fave_food_responses)
+# Print out the random response
+print(random_response)
