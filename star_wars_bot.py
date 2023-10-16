@@ -26,4 +26,4 @@ time.sleep(1)
 
 if cape.lower().strip("'.?") == "yes" or fave_colour.lower().strip("'.?")== "yes": 
     print('You are part of the DARK SIDE!!')
-else: print ("You are part of the Light Side :)")  
+else: print ("You are part of the Light Side :)") 
