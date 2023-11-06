@@ -19,16 +19,27 @@ questions = [
     "Have you been to North America?",
     "Have you been to South America",
     "Have you been to Australia?", 
+    "Have you beem to Africa?",
     "Have you been to Anarctica?"
 ]
 
 total_continents = 0
  
  # Get users response to see how many continents they've been to 
-for continents in questions: 
-    if continents == "yes": 
-        total_continents += 1     
-    else: total_continents += 0    # problem heren 
+for continents in questions:
+    # Ask the question
+    # Get the answer
+    answer = input(continents).lower().strip(",.!?")
+
+    # If the answer is yes
+    if answer == "yes": 
+        total_continents += 1
+
+
+  #   if continents.lower() == "yes": 
+   #     total_continents += 1
+   #  else: total_continents += 0
+
 
 # Print out user result for how many continents they've been to
 print(f"I see, you've visited {total_continents}/7 continents!")
