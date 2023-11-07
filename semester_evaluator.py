@@ -37,3 +37,4 @@ elif average_rating <= 3:
     print(f"{average_rating:.2f}? Not a bad semester.")
 else: print(f"{average_rating:.2f}? Glad to hear that!")
 
+
