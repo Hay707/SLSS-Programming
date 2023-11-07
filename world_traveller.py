@@ -36,10 +36,5 @@ for continents in questions:
         total_continents += 1
 
 
-  #   if continents.lower() == "yes": 
-   #     total_continents += 1
-   #  else: total_continents += 0
-
-
 # Print out user result for how many continents they've been to
 print(f"I see, you've visited {total_continents}/7 continents!")
