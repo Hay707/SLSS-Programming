@@ -127,4 +127,4 @@ def pyramid_mirror(num_layers: int) -> str:
     return pyramid_mirror
 
 pyramid_mirror(1)
-pyramid_mirror(5)
+pyramid_mirror(5) 
