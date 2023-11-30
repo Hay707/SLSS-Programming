@@ -106,21 +106,32 @@ print(even_credit)
 
 # Put all food inside a list
 # Don't know every food so it'll be labeled as " "
-#all_food = [
-#    " ",
-##   " ",
-  #  " "
-#]
 
-#all_food_score = 0  
+most_sim_food_name = " "
+most_sim_food_score = 0
+
+all_food_score = 0  
+every_food_score = 0
+
+all_food = [
+    " "
+]
 # If food is in the list "all_food", food_score + 1
 # If food is not in list food is added into list a
-#with open("./data_example.csv", encoding="utf-8") as f: 
-   # for every_food in f: 
-        #if every_food.split(",")[1] in all_food:
-            #all_food_score += 1
-        #elif every_food not in all_food: 
-            #every_food == " "
+with open("./data_example.csv", encoding="utf-8") as f: 
+   for every_food in f: 
+        likes_of_food = every_food.split(",")
+        # Store food into list
+        food_name = likes_of_food[1]
 
+        if every_food in all_food:
+            all_food_score += 1
+            every_food_score += 1
+        elif every_food not in all_food: 
+            every_food == " "
+            every_food_score += 1
 
-# Not finihsed question 8
+if every_food_score >= every_food_score: 
+    most_fave_food = every_food
+
+print(most_fave_food)
