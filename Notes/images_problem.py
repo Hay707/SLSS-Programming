@@ -74,3 +74,48 @@ with Image.open("./Images/catto.png") as im:
 
     # Save image
     im.save("./Images/output.jpg")
+
+
+
+
+with Image.open("./Images/best_pizza.jpg") as im:
+    # create varibale with width and height 
+    # visit the pixels from left to right
+    image_height = im.height
+    image_width = im.width
+    
+    # variables for colour
+    light_pixel = (255, 255, 255)
+    lightest_gray = (129,129,129)
+    light_gray = (128, 128, 128)
+    darker_gray = (100, 128, 128)
+    dark_gray = (127, 127, 127)
+    dark_pixel = (0, 0, 0)
+
+    # set image to varible so there isn't much typing 
+    pizza_im = Image.open("./Images/best_pizza.jpg")
+    # starting at the top and working its way down the image
+    for y in range(image_height):
+        for x in range(image_width):
+            pixel = im.getpixel((x,y))
+
+            if is_light(pixel) == True: 
+                if pixel >= (lightest_gray) and pixel < (lightest_gray):
+                    im.putpixel((x,y),(light_pixel))
+                else: im.putpixel((x,y), (light_gray))
+            if is_light(pixel) == False: 
+                if pixel >= (darker_gray) and pixel < (dark_gray):
+                    im.putpixel((x,y), darker_gray)
+                elif pixel >= (dark_gray):
+                    im.putpixel((x,y), dark_gray) and pixel < (dark_pixel)
+                else:
+                    im.putpixel((x,y), dark_pixel)
+
+    pizza_im.close()
+
+    # save image
+    im.save("./Images/output.jpg")
+
+
+
+
