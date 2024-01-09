@@ -21,7 +21,7 @@ def winter_holiday(good_or_bad: str) -> str:
         an event that happened during the holidays
         the event is selected randomly""" 
     
-
+    # created a lost of good and bad events
 
     good = [
         "I got to sleep in for many hours",
@@ -35,14 +35,21 @@ def winter_holiday(good_or_bad: str) -> str:
         "I had to do some physics homework"
     ]
      
-    if good_or_bad == "good":
+    # create if statement for whether the user wants to hear the good or bad part of winter break
+    if good_or_bad.strip().lower() == "good":
         return random.choice(good)
-    elif good_or_bad == "bad": 
+    elif good_or_bad.strip().lower() == "bad": 
         return random.choice(bad)
+    else:
+        return "Sorry, I only accept the answer good or bad :)"
+    
 
 
 def main() -> None:
+    # ask user if they wanna hear good or bad part of winter break
     good_or_bad = input("Good or bad?")
+
+    # print a random event from what user chose
     print(winter_holiday(good_or_bad))
 
 
