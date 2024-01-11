@@ -47,30 +47,82 @@ print(is_light(dark_pixel))   # False
 # Colour Helper
 # Functions that help wither colours
 
-def pixel_to_gray_scale(pixel: tuple) -> tuple:
-    """ Return a gray cersion of the given pixel"""
+def pixel_to_name(pixel: tuple) -> str:
+    """Given a 3-tuple, return a string representing
+    its colour
+
+    Params:
+        pixel = 3-tuple of values (red, green, blue)
+
+    Returns:
+        name of the colour
+    """
     red, green, blue = pixel
 
-    gray = int(red * 0.31 + green * 0.59 + blue * 0.11)
+    # TODO: detect jelly pixel green
+    if red < 200 and blue < 200 and green > 220:
+        return "green"
+    elif red > 170 and green < 60 and blue < 60:
+        return "red"
+    elif red < 60 and green > 80 and blue < 60:
+        return "jelly bean green"
+    elif 0 < red < 140 and 20 < green < 160 and blue > 85:       # red 10 green 25 blue 100
+        return "jelly bean blue"
+    else:
+        return "colour unknown"
+
+
+print(pixel_to_name((180, 3, 2)))
+print(pixel_to_name((255, 255, 255)))
+
+
+def is_light(pixel: tuple) -> bool:
+    """Returns True if the pixel is a "light" pixel
+
+    Params:
+        pixel - 3-tuple of values r, g, b
+
+    Returns:
+        True if the pixel is a light pixel
+        False if a dark pixel
+    """
+    red = pixel[0]
+    green = pixel[1]
+    blue = pixel[2]
+
+    average = (red + green + blue) / 3
+
+    if average >= 128:
+        return True
+    else:
+        return False
+
+
+def pixel_to_grayscale(pixel: tuple) -> tuple:
+    """Return a gray version of the given pixel"""
+    red, green, blue = pixel
+
+    gray = int(red * 0.3 + green * 0.59 + blue * 0.11)
 
     return (gray, gray, gray)
 
-print(pixel_to_gray_scale((100, 34, 200)))
 
-def pixel_to_random_effect(pixel: tuple) -> tuple: 
+def pixel_to_random_effect(pixel: tuple) -> tuple:
     """Return a random pixel"""
-    red, green, blue = pixel 
+    red, green, blue = pixel
 
     red += 30
     green += 50
-    blue -= 10        # some random numbers
+    blue -= 10
 
-    if red > 255: 
+    if red > 255:
         red = 255
     if green > 255:
         green = 255
-    if blue < 0: 
+    if blue < 0:
         blue = 0
+
+    return (red, green, blue)
 
 
 # Images Problem
@@ -141,27 +193,3 @@ def picture_to_grayscale(filename: str) -> None:
         # Save the image
         im.save("./Images/grayscale.jpg")
 
-
-def pixel_to_name(pixel: tuple) -> str:
-    """Given a 3-tuple, return a string representing
-    its colour
-
-    Params:
-        pixel = 3-tuple of values (red, green, blue)
-
-    Returns:
-        name of the colour
-    """
-    red, green, blue = pixel
-
-    # TODO: detect redpixels
-    # red pixels -- r > 170, g> 60, b > 60
-    if red < 200 and blue < 200 and green > 220:
-        return "green"
-    elif red > 170 and green < 60 and blue < 60: 
-        return "red"
-    else:
-        return "colour unknown"
-    
-print(pixel_to_name((180, 3, 2)))
-print(pixel_to_name((255, 255, 255)))
