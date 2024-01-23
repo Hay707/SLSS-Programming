@@ -34,10 +34,29 @@ def find_all_songs(artist: str) -> list:
 
 drake_songs = find_all_songs("Drake")
 
+# Print out all songs that have a danceability of >= 0.6
 for song in drake_songs: 
     if float(song[-1]) >= 0.6:  
         print(song)
 
+# --- Sorting Algorithm (lowerst to highest)
+# --- Selection Sort
 
+# Starting at the beginning of the list
+for i in range(len(drake_songs)): 
+        # Set the current item to te smallest value
+        smallest_danceability = drake_songs[i][-1]   # i = different songs ; -1 = list at the end 
+        # For the rest of the list 
+        for j in range(i + 1, len(drake_songs)):         # + 1 to look at next number
+            # Check to see if next number is smaller
+            if drake_songs[j][-1] < smallest_danceability:
+                # If number is, set that number to the smallest number
+                smallest_danceability = drake_songs[j][-1]
+                smallest_index = j
+        
+        # Swap the current position with the smallest nuber we found
+        drake_songs[i], drake_songs[smallest_index] = drake_songs[smallest_index], drake_songs[i] 
+        # Order matters
 
-# Print out all songs that have a danceability of >= 0.6
+for song in drake_songs: 
+    print(song)
